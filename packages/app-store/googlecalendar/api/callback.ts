@@ -17,7 +17,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const state = decodeOAuthState(req);
 
   if (typeof code !== "string") {
-    res.status(400).json({ message: "`code` must be a string" });
+    console.log("`code` must be a string");
+    res.redirect(getInstalledAppPath({}));
+
     return;
   }
 
